@@ -1,32 +1,32 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
+
+// Imports des routes
+import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import machineRoutes from './routes/machineRoutes.js';
+import maintenanceRoutes from './routes/maintenanceRoutes.js';
+import interventionRoutes from './routes/interventionRoutes.js'; // ✅ Ajouté
+
+// Middleware d'authentification
+import authMiddleware from './middleware/authMiddleware.js';
+
 const app = express();
 
-// Middleware
+// Middlewares globaux
 app.use(cors());
 app.use(express.json());
 
-// 👉 Route de test
-app.get('/', (req, res) => {
-  res.send('API up and running!');
-});
+// Routes publiques (authentification)
+app.use('/api/auth', authRoutes);
 
-// 👉 Exemple de route GET /machines
-app.get('/machines', async (req, res) => {
-  try {
-    const machines = [
-      { id: 1, name: 'Pompe A', status: 'En marche' },
-      { id: 2, name: 'Compresseur B', status: 'En panne' },
-    ];
-    res.json(machines);
-  } catch (err) {
-    res.status(500).json({ error: 'Erreur lors du chargement des machines' });
-  }
-});
+// Routes protégées par authMiddleware
+app.use('/api/users', authMiddleware, userRoutes);
+app.use('/api/machines', authMiddleware, machineRoutes);
+app.use('/api/maintenances', authMiddleware, maintenanceRoutes);
+app.use('/api/interventions', authMiddleware, interventionRoutes); // ✅ Ajouté ici
 
-// Lancer le serveur
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`✅ Backend API running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
