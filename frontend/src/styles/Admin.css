@@ -1,0 +1,289 @@
+/* === Layout Général === */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6f9;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* === Sidebar Modernisée === */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #1f2937, #111827);
+  color: #fff;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #374151;
+}
+
+.sidebar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar a {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  background: #2563eb;
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* === Main Content === */
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.header {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* === Dashboard Cards === */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* === Tables === */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.styled-table th, 
+.styled-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: start;
+}
+
+.styled-table th {
+  background: #f9fafb;
+  font-weight: bold;
+}
+
+/* === Inputs === */
+.input-note {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* === Boutons === */
+.btn-add,
+.btn-edit,
+.btn-delete,
+.btn-save,
+.btn-cancel,
+.btn-action,
+.btn-analyse,
+.btn-submit {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 8px 14px;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-add { background: #4CAF50; color: #fff; }
+.btn-add:hover { background: #43a047; transform: scale(1.05); }
+
+.btn-edit { background: #2196F3; color: #fff; }
+.btn-edit:hover { background: #1976d2; transform: scale(1.05); }
+
+.btn-delete { background: #f44336; color: #fff; }
+.btn-delete:hover { background: #d32f2f; transform: scale(1.05); }
+
+.btn-save { background: #2563eb; color: #fff; }
+.btn-save:hover { background: #1d4ed8; transform: scale(1.05); }
+
+.btn-cancel { background: #6b7280; color: #fff; }
+.btn-cancel:hover { background: #4b5563; transform: scale(1.05); }
+
+.btn-action { background: #10b981; color: #fff; }
+.btn-action:hover { background: #059669; transform: scale(1.05); }
+
+.btn-analyse { background: #f59e0b; color: #fff; }
+.btn-analyse:hover { background: #d97706; transform: scale(1.05); }
+
+.btn-submit { background: #2563eb; color: #fff; }
+.btn-submit:hover { background: #1d4ed8; transform: scale(1.05); }
+
+/* === Formulaires modernes === */
+.form-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 480px;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+}
+
+.form-card label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.form-card input:focus,
+.form-card textarea:focus,
+.form-card select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* === Résultat IA === */
+.prediction-bar {
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.prediction-bar .bar-fill {
+  height: 28px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  line-height: 28px;
+  transition: width 0.5s ease;
+}
+
+.high-risk { color: red; font-weight: bold; }
+.low-risk { color: green; font-weight: bold; }
+
+/* === Rapport === */
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.report-form input,
+.report-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.report-form textarea {
+  min-height: 80px;
+}
+
+/* === Animations === */                                                            
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* === Bouton Déconnexion === */
+.btn-logout {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* === Mise en page header actions === */
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* === Carte Résultat moderne === */
+.result-card {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.3s ease-in-out;
+}
+

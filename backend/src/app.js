@@ -9,6 +9,9 @@ import userRoutes from './routes/userRoutes.js';
 import machineRoutes from './routes/machineRoutes.js';
 import maintenanceRoutes from './routes/maintenanceRoutes.js';
 import interventionRoutes from './routes/interventionRoutes.js'; // ✅ Ajouté
+import predictionRoutes from "./routes/predictionRoutes.js";
+
+
 
 // Middleware d'authentification
 import authMiddleware from './middleware/authMiddleware.js';
@@ -27,6 +30,7 @@ app.use('/api/users', authMiddleware, userRoutes);
 app.use('/api/machines', authMiddleware, machineRoutes);
 app.use('/api/maintenances', authMiddleware, maintenanceRoutes);
 app.use('/api/interventions', authMiddleware, interventionRoutes); // ✅ Ajouté ici
+app.use("/api/predictions", predictionRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
